@@ -1,0 +1,175 @@
+.app__navbar {
+  width: 100%;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  padding: 1rem 2rem; // 1 rem on top and bottom, 2 rem on left and right
+  background: rgba(255, 255, 255, 0.25);
+  // box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+  backdrop-filter: blur(4px);  // this property is not available on every browser, we need the next line
+  -webkit-backdrop-filter: blur(4px);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  position: fixed;  // fix at the top
+  z-index: 2;  // above teh content
+}
+
+.app__navbar-logo {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+
+  img {  // target img tag in the app__navbar-logo, instead of using app__navbar-logo img
+    width: 90px;
+    height: 50px;
+
+    // add media query, so following works when screen is very large
+    @media screen and (min-width: 2000px) {
+      width: 180px;
+      height: 90px;
+    }
+  }
+}
+
+
+.app__navbar-links {
+  flex: 1;
+  display: flex; //这样他就是水平的
+  justify-content: center;
+  align-items: center;
+
+  list-style: none;
+
+  li {
+    margin: 0 1rem;
+    cursor: pointer;
+
+    flex-direction: column;
+
+    div { // dot amove tag
+      width: 10px;
+      height: 10px;
+      background: transparent;
+      border-radius: 50%; // make it a circle
+
+      margin-bottom: 5px;
+    }
+
+    a {
+      color: var(--gray-color);  // get the value from index.css
+      text-decoration: none; // remove hyperlinks underlines
+      flex-direction: column;
+
+      text-transform: uppercase;
+      font-weight: 500; // bold the text
+
+      transition: all 0.3s ease-in-out; // all components, duration, slow at begin and end fast at middle
+
+      &:hover { // & refer to the element inside of (a)
+        color: var(--secondary-color);
+      }
+    }
+
+    &:hover {
+      div {
+        background: var(--secondary-color);
+      }
+    }
+  }
+
+  @media screen and (max-width: 900px) {
+    display: none;
+  }
+}
+
+.app__navbar-menu {
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  position: relative;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--secondary-color);
+
+
+  svg { // svg inside the button icon
+    width: 70%;
+    height: 70%;
+    color: var(--white-color);
+  }
+
+  div {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    z-index: 5;
+
+    padding: 1rem;
+
+    width: 80%;
+    height: 100vh;
+    
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+    flex-direction: column;
+    
+    background: url('../../assets/bgWhite.png');
+    background-color: var(--white-color);
+    background-size: cover;
+    background-repeat: repeat;
+
+    /* top box shadow */
+    box-shadow: 0px 0px 20px rgba(168, 168, 168, 0.15);
+
+    svg {
+      width: 35px;
+      height: 35px;
+      color: var(--secondary-color);
+      margin: 0.5rem 1rem;
+    }
+
+    ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      width: 100%;
+
+      display: flex;
+      justify-content: flex-start;
+      align-items: flex-start;
+      flex-direction: column;
+
+      li {
+        margin: 1rem;
+
+        a {
+          color: var(--gray-color);
+          text-decoration: none;
+          font-size: 1rem;
+          text-transform: uppercase;
+          font-weight: 500;
+
+          transition: all 0.3s ease-in-out;
+
+          &:hover {
+            color: var(--secondary-color);
+          }
+        }
+      }
+    }
+
+    @media screen and (min-width: 900px) {
+      display: none;
+    }
+  }
+
+  @media screen and (min-width: 900px) {
+    display: none;
+  }
+}
