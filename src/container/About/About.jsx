@@ -1,17 +1,22 @@
 import React, {useState,useEffect} from 'react'
 import { motion } from 'framer-motion'
-
+import { urlFor, client } from '../../client';
 import {images} from '../../constants'
 import './About.scss'
 
-const abouts = [
-  {title: 'Web Development', description: 'I am a good web developer.', img: images.about01},
-  {title: 'Web Design', description: 'I am a good web developer.', img: images.about02},
-  {title: 'UI/UX', description: 'I am a good web developer.', img: images.about03},
-  {title: 'Web Animations', description: 'I am a good web developer.', img: images.about04}
-]
 
 const About = () => {
+  const [abouts, setabouts] = useState([]) // initialize to list
+
+  useEffect(() => {
+    const query = '*[_type == "abouts"]'
+    client.fetch(query).then((data) => {
+      setabouts(data);
+    });
+  
+
+  }, []) // run the code when render update DOM of web
+  
   return (
     <>
       <h2 className="head-text">I know that<span> Good Design </span>means<span> Good Business</span></h2>
