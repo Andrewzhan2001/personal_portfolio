@@ -33,8 +33,8 @@ jobs:
           ###### End of Repository/Build Configurations ######
         env:
           CI: false # Build configuration
-          REACT_APP_SANITY_PROJECT_ID: $(REACT_APP_SANITY_PROJECT_ID)
-          REACT_APP_SANITY_TOKEN: $(REACT_APP_SANITY_TOKEN)
+          REACT_APP_SANITY_PROJECT_ID: ${{secrets.REACT_APP_SANITY_PROJECT_ID}}
+          REACT_APP_SANITY_TOKEN: ${{secrets.REACT_APP_SANITY_TOKEN}}
 
   close_pull_request_job:
     if: github.event_name == 'pull_request' && github.event.action == 'closed'
