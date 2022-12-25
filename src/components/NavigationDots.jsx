@@ -7,7 +7,7 @@ const NavigationDots = ({ active }) => ( // in html tag, need attribute active =
         href={`#${item}`} // use a to jump to certain part of the page
         key={item + index}
         className="app__navigation-dot"
-        style={active === item ? { backgroundColor: '#313BAC' } : {}}
+        style={active === item ? { backgroundColor: '#313BAC' } : {}} // === do not do the type conversion
       />
     ))}
   </div>

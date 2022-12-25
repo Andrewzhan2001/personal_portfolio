@@ -15,7 +15,7 @@ const About = () => {
     });
   
 
-  }, []) // run the code when render update DOM of web
+  }, []) // run the code when render update DOM of web (normal render)
   
   return (
     <>
