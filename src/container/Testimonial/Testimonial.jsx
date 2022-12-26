@@ -5,7 +5,6 @@ import { AppWrap, MotionWrap } from '../../Wrapper';
 import { urlFor, client } from '../../client';
 import { PlainText } from '../../components';
 import './Testimonial.scss';
-import { PortableText } from '@portabletext/react';
 
 const Testimonial = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
