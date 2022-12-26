@@ -1,3 +1,4 @@
+jsx文件首字母必须大写
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
